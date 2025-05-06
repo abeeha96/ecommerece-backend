@@ -6,8 +6,11 @@ const mongoose = require('mongoose'); // For MongoDB connection
 const cors = require('cors'); // To enable CORS for frontend-backend communication
 require('dotenv/config'); // Loading environment variables from .env file
 
+const corsOptions = {
+  origin:['https://ecommerece-ten.vercel.app/',"http://localhost:5173"]
+};
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.options('*', cors()); // Enable CORS for all routes
 app.use(bodyParser.json()); // Parse incoming JSON data
 
